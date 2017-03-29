@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170329121129) do
+ActiveRecord::Schema.define(version: 20170329220914) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "provider",               default: "email", null: false
@@ -41,6 +41,70 @@ ActiveRecord::Schema.define(version: 20170329121129) do
     t.index ["uid", "provider"], name: "index_admins_on_uid_and_provider", unique: true
   end
 
+  create_table "logistics", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "logistics_type"
+    t.string   "name"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["user_id"], name: "index_logistics_on_user_id"
+  end
+
+  create_table "packages", force: :cascade do |t|
+    t.integer  "product_id"
+    t.string   "packages_type"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["product_id"], name: "index_packages_on_product_id"
+  end
+
+  create_table "producers", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "producers_type"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["user_id"], name: "index_producers_on_user_id"
+  end
+
+  create_table "product_types", force: :cascade do |t|
+    t.integer  "producer_id"
+    t.string   "name"
+    t.string   "product_types_type"
+    t.string   "description"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["producer_id"], name: "index_product_types_on_producer_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.integer  "product_type_id"
+    t.string   "name"
+    t.string   "products_type"
+    t.string   "description"
+    t.string   "cas_number"
+    t.float    "quantity"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "quantity_type"
+    t.index ["product_type_id"], name: "index_products_on_product_type_id"
+  end
+
+  create_table "shipments", force: :cascade do |t|
+    t.integer  "logistic_id"
+    t.string   "shipments_type"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["logistic_id"], name: "index_shipments_on_logistic_id"
+  end
+
+  create_table "transports", force: :cascade do |t|
+    t.integer  "logistic_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["logistic_id"], name: "index_transports_on_logistic_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "provider",               default: "email", null: false
     t.string   "uid",                    default: "",      null: false
@@ -68,6 +132,13 @@ ActiveRecord::Schema.define(version: 20170329121129) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
+  end
+
+  create_table "warehouses", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_warehouses_on_user_id"
   end
 
 end
