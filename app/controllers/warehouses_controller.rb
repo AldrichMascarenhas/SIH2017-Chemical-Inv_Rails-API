@@ -3,7 +3,8 @@ class WarehousesController < ApplicationController
 
   # GET /warehouses
   def index
-    @warehouses = Warehouse.all
+    @user = User.find(params[:user_id])
+    @warehouses = @user.warehouses.all
 
     render json: @warehouses
   end
@@ -15,7 +16,10 @@ class WarehousesController < ApplicationController
 
   # POST /warehouses
   def create
-    @warehouse = Warehouse.new(warehouse_params)
+
+    @user = User.find(params[:user_id])
+    @warehouse = @user.warehouses.create(warehouse_params)
+
 
     if @warehouse.save
       render json: @warehouse, status: :created, location: @warehouse
@@ -46,6 +50,6 @@ class WarehousesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def warehouse_params
-      params.require(:warehouse).permit(:user_id)
+      params.permit(:user_id)
     end
 end

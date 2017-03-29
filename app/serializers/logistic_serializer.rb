@@ -1,4 +1,6 @@
 class LogisticSerializer < ActiveModel::Serializer
-  attributes :id
-  has_one :user
+  attributes :id, :logistics_type, :name
+  belongs_to :user
+
+  has_many :transports
 end

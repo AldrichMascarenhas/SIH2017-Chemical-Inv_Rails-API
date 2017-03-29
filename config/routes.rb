@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  resources :transports
   resources :shipments
-  resources :logistics
 
 
 
@@ -17,11 +15,21 @@ Rails.application.routes.draw do
       end
     end
 
+   end
+
+
 
     resources :warehouses
 
+    shallow do
+      resources :logistics do
+        resources :transports
 
-  end
+      end
+
+    end
+
+
 
 
 

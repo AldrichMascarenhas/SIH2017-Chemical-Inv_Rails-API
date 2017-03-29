@@ -3,7 +3,8 @@ class LogisticsController < ApplicationController
 
   # GET /logistics
   def index
-    @logistics = Logistic.all
+    @user = User.find(params[:user_id])
+    @logistics = @user.logistics.all
 
     render json: @logistics
   end
@@ -15,7 +16,9 @@ class LogisticsController < ApplicationController
 
   # POST /logistics
   def create
-    @logistic = Logistic.new(logistic_params)
+
+    @user = User.find(params[:user_id])
+    @logistic = @user.logistics.create(logistic_params)
 
     if @logistic.save
       render json: @logistic, status: :created, location: @logistic
@@ -46,6 +49,6 @@ class LogisticsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def logistic_params
-      params.require(:logistic).permit(:user_id)
+      params.permit(:name, :logistics_type)
     end
 end

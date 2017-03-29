@@ -3,7 +3,8 @@ class TransportsController < ApplicationController
 
   # GET /transports
   def index
-    @transports = Transport.all
+    @logistic = Logistic.find(params[:logistic_id])
+    @transports = @logistic.transports.all
 
     render json: @transports
   end
@@ -15,7 +16,12 @@ class TransportsController < ApplicationController
 
   # POST /transports
   def create
-    @transport = Transport.new(transport_params)
+
+
+
+    @logistic = Logistic.find(params[:logistic_id])
+    @transport = @logistic.transports.create(transport_params)
+
 
     if @transport.save
       render json: @transport, status: :created, location: @transport
@@ -46,6 +52,6 @@ class TransportsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def transport_params
-      params.require(:transport).permit(:logistic_id)
+      params.permit(:name, :uid)
     end
 end
