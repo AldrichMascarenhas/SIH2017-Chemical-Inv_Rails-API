@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170329232543) do
+ActiveRecord::Schema.define(version: 20170330002102) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "provider",               default: "email", null: false
@@ -55,7 +55,9 @@ ActiveRecord::Schema.define(version: 20170329232543) do
     t.string   "packages_type"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.integer  "shipment_id"
     t.index ["product_id"], name: "index_packages_on_product_id"
+    t.index ["shipment_id"], name: "index_packages_on_shipment_id"
   end
 
   create_table "producers", force: :cascade do |t|
@@ -94,6 +96,10 @@ ActiveRecord::Schema.define(version: 20170329232543) do
     t.string   "shipments_type"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.string   "name"
+    t.string   "status"
+    t.date     "date_departure"
+    t.date     "date_arrival"
   end
 
   create_table "transports", force: :cascade do |t|
