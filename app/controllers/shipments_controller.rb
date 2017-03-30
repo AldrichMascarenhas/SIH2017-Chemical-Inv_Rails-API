@@ -15,6 +15,7 @@ class ShipmentsController < ApplicationController
 
   # POST /shipments
   def create
+
     @shipment = Shipment.new(shipment_params)
 
     if @shipment.save
@@ -26,11 +27,19 @@ class ShipmentsController < ApplicationController
 
   # PATCH/PUT /shipments/1
   def update
-    if @shipment.update(shipment_params)
-      render json: @shipment
-    else
-      render json: @shipment.errors, status: :unprocessable_entity
+
+    ids = params[:package_ids].split(',')
+
+    ids.each do |id|
+      @package = Package.find(id.to_i)
+      @package.update_attributes(shipment_id: params[:id])
     end
+
+    @shipment = Shipment.find(params[:id])
+
+    render json: @shipment
+
+
   end
 
   # DELETE /shipments/1
@@ -46,6 +55,12 @@ class ShipmentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def shipment_params
-      params.require(:shipment).permit(:logistic_id)
+      params.permit(:shipments_type, :name, :status ,:date_departure, :date_arrival)
+
     end
+
+  # Only allow a trusted parameter "white list" through.
+  def package_params
+    params.permit(:packages_type)
+  end
 end

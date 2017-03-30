@@ -16,9 +16,9 @@ class PackagesController < ApplicationController
   # POST /packages
   def create
 
+    @package = Package.new(package_params)
 
-    @product = Product.find(params[:product_id])
-    @package = @product.packages.create(package_params)
+
 
     if @package.save
       render json: @package, status: :created, location: @package
@@ -49,6 +49,6 @@ class PackagesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def package_params
-      params.permit(:packages_type)
+      params.permit(:packages_type).merge(product_id: params[:product_id],shipment_id: params[:shipment_id])
     end
 end
