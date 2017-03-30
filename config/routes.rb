@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :shipments
 
 
 
@@ -28,6 +27,9 @@ Rails.application.routes.draw do
       end
 
     end
+
+
+  resources :shipments
 
 
 
