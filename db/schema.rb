@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170330002102) do
+ActiveRecord::Schema.define(version: 20170330115625) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "provider",               default: "email", null: false
@@ -50,14 +50,25 @@ ActiveRecord::Schema.define(version: 20170330002102) do
     t.index ["user_id"], name: "index_logistics_on_user_id"
   end
 
+  create_table "logistics_services", force: :cascade do |t|
+    t.integer  "logistic_id"
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["logistic_id"], name: "index_logistics_services_on_logistic_id"
+  end
+
   create_table "packages", force: :cascade do |t|
     t.integer  "product_id"
     t.string   "packages_type"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "shipment_id"
+    t.integer  "warehouse_id"
     t.index ["product_id"], name: "index_packages_on_product_id"
     t.index ["shipment_id"], name: "index_packages_on_shipment_id"
+    t.index ["warehouse_id"], name: "index_packages_on_warehouse_id"
   end
 
   create_table "producers", force: :cascade do |t|
@@ -94,12 +105,14 @@ ActiveRecord::Schema.define(version: 20170330002102) do
 
   create_table "shipments", force: :cascade do |t|
     t.string   "shipments_type"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.string   "name"
     t.string   "status"
     t.date     "date_departure"
     t.date     "date_arrival"
+    t.integer  "logistics_service_id"
+    t.index ["logistics_service_id"], name: "index_shipments_on_logistics_service_id"
   end
 
   create_table "transports", force: :cascade do |t|
@@ -142,8 +155,10 @@ ActiveRecord::Schema.define(version: 20170330002102) do
 
   create_table "warehouses", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "name"
+    t.string   "warehouses_type"
     t.index ["user_id"], name: "index_warehouses_on_user_id"
   end
 

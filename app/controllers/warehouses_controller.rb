@@ -50,6 +50,6 @@ class WarehousesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def warehouse_params
-      params.permit(:user_id)
+      params.permit(:name, :warehouses_type)
     end
 end

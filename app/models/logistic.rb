@@ -3,4 +3,6 @@ class Logistic < ApplicationRecord
 
 
   has_many :transports
+
+  has_many :logistics_services
 end

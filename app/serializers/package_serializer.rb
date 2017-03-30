@@ -1,13 +1,20 @@
 class PackageSerializer < ActiveModel::Serializer
-  attributes :id, :packages_type, :shipment_id
+  attributes :id, :packages_type, :shipment_id, :warehouse_id
   belongs_to :product
 
-  belongs_to :shipment, if: :condition?
+  belongs_to :shipment, if: :conditionS?
 
+  belongs_to :warehouse, if: :conditionW?
 
-  def condition?
+  def conditionS?
     true if :shipment_id != 0
   end
+
+
+  def conditionW?
+    true if :shipment_id != nil
+  end
+
 
 
 end

@@ -23,13 +23,16 @@ Rails.application.routes.draw do
     shallow do
       resources :logistics do
         resources :transports
+        resources :logistics_services
 
       end
 
     end
 
 
-  resources :shipments
+  resources :shipments do
+    post 'addtologisticservice'
+  end
 
 
 

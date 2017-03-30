@@ -42,6 +42,15 @@ class ShipmentsController < ApplicationController
 
   end
 
+  def addtologisticservice
+    @shipment = Shipment.find(params[:shipment_id])
+    @shipment.update_attributes(logistics_service_id: params[:logistics_service_id])
+
+    render json: @shipment
+
+
+  end
+
   # DELETE /shipments/1
   def destroy
     @shipment.destroy

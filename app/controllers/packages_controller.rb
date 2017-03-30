@@ -29,7 +29,9 @@ class PackagesController < ApplicationController
 
   # PATCH/PUT /packages/1
   def update
-    if @package.update(package_params)
+
+
+    if @package.update_attributes(warehouse_id: params[:warehouse_id])
       render json: @package
     else
       render json: @package.errors, status: :unprocessable_entity
