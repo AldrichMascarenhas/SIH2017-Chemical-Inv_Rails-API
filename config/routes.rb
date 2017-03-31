@@ -42,5 +42,8 @@ Rails.application.routes.draw do
   as :admin do
     # Define routes for Admin within this block.
   end
+
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
