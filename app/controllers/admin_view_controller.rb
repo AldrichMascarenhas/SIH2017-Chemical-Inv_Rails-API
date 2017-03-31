@@ -1,5 +1,8 @@
 class AdminViewController < ApplicationController
+
+
   def showallproducers
+    render json: { status: 200}
 
   end
 

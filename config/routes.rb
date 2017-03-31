@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
 
+  resources :logistics_service_locations
   mount_devise_token_auth_for 'User', at: 'user_auth'
 
 
@@ -42,6 +43,28 @@ Rails.application.routes.draw do
   as :admin do
     # Define routes for Admin within this block.
   end
+
+  get :showallproducers, to: "admin_view#showallproducers"
+  get :showallproducttypes, to: "admin_view#showallproducttypes"
+  get :showallproducts, to: "admin_view#showallproducts"
+  get :showallpackages, to: "admin_view#showallpackages"
+
+
+  get :showalllogistics, to: "admin_view#showalllogistics"
+  get :showalltransports, to: "admin_view#sshowalltransports"
+  get :showalllogisticservices, to: "admin_view#showalllogisticservices"
+  get :showallwarehouses, to: "admin_view#showallwarehouses"
+  get :showallshipments, to: "admin_view#showallshipments"
+
+
+
+
+
+
+
+
+
+
 
 
 
