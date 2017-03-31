@@ -32,6 +32,7 @@ class PackagesController < ApplicationController
 
 
     if @package.update_attributes(warehouse_id: params[:warehouse_id])
+
       render json: @package
     else
       render json: @package.errors, status: :unprocessable_entity
@@ -51,6 +52,6 @@ class PackagesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def package_params
-      params.permit(:packages_type).merge(product_id: params[:product_id],shipment_id: params[:shipment_id])
+      params.permit(:packages_type, :quantity_type, :quantity).merge(product_id: params[:product_id],shipment_id: params[:shipment_id])
     end
 end

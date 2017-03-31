@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170330115625) do
+ActiveRecord::Schema.define(version: 20170331062708) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "provider",               default: "email", null: false
@@ -66,6 +66,8 @@ ActiveRecord::Schema.define(version: 20170330115625) do
     t.datetime "updated_at",    null: false
     t.integer  "shipment_id"
     t.integer  "warehouse_id"
+    t.string   "quantity"
+    t.string   "quantity_type"
     t.index ["product_id"], name: "index_packages_on_product_id"
     t.index ["shipment_id"], name: "index_packages_on_shipment_id"
     t.index ["warehouse_id"], name: "index_packages_on_warehouse_id"
