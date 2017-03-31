@@ -17,8 +17,7 @@ class LogisticsServicesController < ApplicationController
   # POST /logistics_services
   def create
 
-    @logistic = Logistic.find(params[:logistic_id])
-    @logistics_service = @logistic.logistics_services.create(logistics_service_params)
+    @logistics_service = LogisticsService.new(logistics_service_params)
 
     if @logistics_service.save
       render json: @logistics_service, status: :created, location: @logistics_service
@@ -49,6 +48,7 @@ class LogisticsServicesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def logistics_service_params
-      params.permit(:name, :description)
+      params.permit(:name, :description).merge(logistic_id: params[:logistic_id],transport_id: params[:transport_id])
+
     end
 end

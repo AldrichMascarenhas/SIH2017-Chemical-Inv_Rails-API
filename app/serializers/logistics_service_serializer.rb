@@ -4,4 +4,7 @@ class LogisticsServiceSerializer < ActiveModel::Serializer
 
   has_one :shipment #TODO: make many
 
+
+  belongs_to :transport
+
 end

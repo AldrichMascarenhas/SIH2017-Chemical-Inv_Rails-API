@@ -1,0 +1,2 @@
+class AdminViewController < ApplicationController
+end
