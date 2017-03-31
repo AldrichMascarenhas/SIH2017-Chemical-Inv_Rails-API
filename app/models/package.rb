@@ -5,4 +5,6 @@ class Package < ApplicationRecord
 
   belongs_to :shipment, optional: true
   belongs_to :warehouse, optional: true
+
+
 end

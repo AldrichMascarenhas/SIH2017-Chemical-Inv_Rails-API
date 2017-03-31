@@ -1,4 +1,4 @@
 class LogisticsServiceLocationSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :lat, :long
   has_one :logistics_service
 end
