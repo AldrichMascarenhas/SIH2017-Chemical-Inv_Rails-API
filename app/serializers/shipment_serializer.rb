@@ -6,6 +6,7 @@ class ShipmentSerializer < ActiveModel::Serializer
   belongs_to :user
 
   belongs_to :logistics_service, if: :conditionS?
+  has_many :logistics_service_locations, :through => :logistics_service
 
   def conditionS?
     true if :logistics_service_id != nil
