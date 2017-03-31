@@ -3,7 +3,8 @@ class LogisticsServiceLocationsController < ApplicationController
 
   # GET /logistics_service_locations
   def index
-    @logistics_service_locations = LogisticsServiceLocation.all
+    @logistics_service = LogisticsService.find(params[:logistics_service_id])
+    @logistics_service_locations = @logistics_service.logistics_service_locations.all
 
     render json: @logistics_service_locations
   end
@@ -15,7 +16,12 @@ class LogisticsServiceLocationsController < ApplicationController
 
   # POST /logistics_service_locations
   def create
-    @logistics_service_location = LogisticsServiceLocation.new(logistics_service_location_params)
+
+
+    @logistics_service = LogisticsService.find(params[:logistics_service_id])
+    @logistics_service_location = @logistics_service.logistics_service_locations.create(logistics_service_location_params)
+
+
 
     if @logistics_service_location.save
       render json: @logistics_service_location, status: :created, location: @logistics_service_location

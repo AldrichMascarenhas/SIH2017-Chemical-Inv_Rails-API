@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
 
 
-  resources :logistics_service_locations
   mount_devise_token_auth_for 'User', at: 'user_auth'
 
 
@@ -24,7 +23,10 @@ Rails.application.routes.draw do
     shallow do
       resources :logistics do
         resources :transports
-        resources :logistics_services
+        resources :logistics_services do
+          resources :logistics_service_locations
+
+        end
 
       end
 
