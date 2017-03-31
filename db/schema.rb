@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170331062708) do
+ActiveRecord::Schema.define(version: 20170331065157) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "provider",               default: "email", null: false
@@ -114,7 +114,9 @@ ActiveRecord::Schema.define(version: 20170331062708) do
     t.date     "date_departure"
     t.date     "date_arrival"
     t.integer  "logistics_service_id"
+    t.integer  "user_id"
     t.index ["logistics_service_id"], name: "index_shipments_on_logistics_service_id"
+    t.index ["user_id"], name: "index_shipments_on_user_id"
   end
 
   create_table "transports", force: :cascade do |t|

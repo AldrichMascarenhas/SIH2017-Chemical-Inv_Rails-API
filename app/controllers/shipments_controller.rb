@@ -3,7 +3,8 @@ class ShipmentsController < ApplicationController
 
   # GET /shipments
   def index
-    @shipments = Shipment.all
+    @user = User.find(params[:user_id])
+    @shipments = @user.shipments.all
 
     render json: @shipments
   end
@@ -16,7 +17,9 @@ class ShipmentsController < ApplicationController
   # POST /shipments
   def create
 
-    @shipment = Shipment.new(shipment_params)
+    @user = User.find(params[:user_id])
+    @shipment = @user.shipments.create(shipment_params)
+
 
     if @shipment.save
       render json: @shipment, status: :created, location: @shipment
@@ -50,6 +53,8 @@ class ShipmentsController < ApplicationController
 
 
   end
+
+
 
   # DELETE /shipments/1
   def destroy

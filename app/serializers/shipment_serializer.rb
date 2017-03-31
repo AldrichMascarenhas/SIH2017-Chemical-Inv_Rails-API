@@ -3,6 +3,7 @@ class ShipmentSerializer < ActiveModel::Serializer
 
   has_many :packages
 
+  belongs_to :user
 
   belongs_to :logistics_service, if: :conditionS?
 

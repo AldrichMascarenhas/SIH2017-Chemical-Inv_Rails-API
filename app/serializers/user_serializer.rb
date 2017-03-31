@@ -6,6 +6,9 @@ class UserSerializer < ActiveModel::Serializer
   has_many :logistics
 
   has_many :warehouses
+
+  has_many :shipments
+
 end
 
 

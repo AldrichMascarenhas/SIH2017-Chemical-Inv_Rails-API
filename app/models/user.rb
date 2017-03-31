@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :logistics
   include DeviseTokenAuth::Concerns::User
 
+  has_many :shipments
 
   def token_validation_response
     UserSerializer.new( self, root: false )

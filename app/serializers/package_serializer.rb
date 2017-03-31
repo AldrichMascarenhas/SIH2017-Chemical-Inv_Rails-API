@@ -7,7 +7,7 @@ class PackageSerializer < ActiveModel::Serializer
   belongs_to :warehouse, if: :conditionW?
 
   def conditionS?
-    true if :shipment_id != 0
+    true if :shipment_id != 0 || :shipment_id != nil
   end
 
 
