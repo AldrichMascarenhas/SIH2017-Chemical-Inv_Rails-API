@@ -3,7 +3,7 @@ class UserSerializer < ActiveModel::Serializer
 
   has_many :producers
 
-  has_many :logistics
+  has_many :transports
 
   has_many :warehouses
 

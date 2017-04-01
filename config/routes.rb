@@ -29,16 +29,14 @@ Rails.application.routes.draw do
   end
 
     shallow do
-      resources :logistics do
-        resources :transports
+        resources :transports do
         resources :logistics_services do
           resources :logistics_service_locations
-
         end
-
-      end
-
+        end
     end
+
+
 
 
   resources :shipments do

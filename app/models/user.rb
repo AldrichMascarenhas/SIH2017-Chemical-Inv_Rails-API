@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   has_many :warehouses
 
-  has_many :logistics
+  has_many :transports
   include DeviseTokenAuth::Concerns::User
 
   has_many :shipments
