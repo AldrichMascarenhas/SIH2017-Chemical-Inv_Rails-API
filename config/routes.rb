@@ -8,11 +8,11 @@ Rails.application.routes.draw do
    shallow do
     resources :producers do
       resources :producer_locations
-      resources :product_types do
+
         resources :products do
           resources :packages
         end
-      end
+
     end
 
    end

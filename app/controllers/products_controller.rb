@@ -3,8 +3,8 @@ class ProductsController < ApplicationController
 
   # GET /products
   def index
-    @product_type = ProductType.find(params[:product_type_id])
-    @products = @product_type.products.all
+    @producer = Producer.find(params[:producer_id])
+    @products = @producer.products.all
     render json: @products
   end
 
@@ -16,8 +16,8 @@ class ProductsController < ApplicationController
   # POST /products
   def create
 
-    @product_type = ProductType.find(params[:product_type_id])
-    @product = @product_type.products.create(product_params)
+    @producer = Producer.find(params[:producer_id])
+    @product = @producer.products.create(product_params)
 
     if @product.save
       render json: @product, status: :created, location: @product

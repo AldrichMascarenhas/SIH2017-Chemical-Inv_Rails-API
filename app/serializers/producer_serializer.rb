@@ -3,8 +3,8 @@ class ProducerSerializer < ActiveModel::Serializer
 
 
   belongs_to :user
-  has_many :product_types
-
   has_one :producer_location
+
+  has_many :products
 
 end

@@ -103,27 +103,17 @@ ActiveRecord::Schema.define(version: 20170401115302) do
     t.index ["user_id"], name: "index_producers_on_user_id"
   end
 
-  create_table "product_types", force: :cascade do |t|
-    t.integer  "producer_id"
-    t.string   "name"
-    t.string   "product_types_type"
-    t.string   "description"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.index ["producer_id"], name: "index_product_types_on_producer_id"
-  end
-
   create_table "products", force: :cascade do |t|
-    t.integer  "product_type_id"
+    t.integer  "producer_id"
     t.string   "name"
     t.string   "products_type"
     t.string   "description"
     t.string   "cas_number"
     t.float    "quantity"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.string   "quantity_type"
-    t.index ["product_type_id"], name: "index_products_on_product_type_id"
+    t.index ["producer_id"], name: "index_products_on_producer_id"
   end
 
   create_table "shipments", force: :cascade do |t|
