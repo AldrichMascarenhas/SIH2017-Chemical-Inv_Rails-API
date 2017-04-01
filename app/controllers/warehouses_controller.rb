@@ -14,6 +14,17 @@ class WarehousesController < ApplicationController
     render json: @warehouse
   end
 
+  def warehousesforstate
+    @state = (params[:state])
+
+    @warehouses = Warehouse.joins(:warehouse_location).where('warehouse_locations.state' => @state)
+
+    render json:  @warehouses
+
+
+  end
+
+
   # POST /warehouses
   def create
 

@@ -73,7 +73,7 @@ Rails.application.routes.draw do
 
 
   get :producersforstate, to: "producers#producersforstate"
-
+  get :warehousesforstate, to: "warehouses#warehousesforstate"
 
 
 
