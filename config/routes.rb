@@ -72,6 +72,7 @@ Rails.application.routes.draw do
   get :search, to: "cas_data_search#search"
 
 
+  get :producersforstate, to: "producers#producersforstate"
 
 
 

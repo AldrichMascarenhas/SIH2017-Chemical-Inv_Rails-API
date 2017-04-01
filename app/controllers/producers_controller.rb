@@ -10,6 +10,16 @@ class ProducersController < ApplicationController
     render json: @producers
   end
 
+  def producersforstate
+    @state = (params[:state])
+
+    @producers = Producer.joins(:producer_location).where('producer_locations.state' => @state)
+
+    render json:  @producers
+
+
+  end
+
   # GET /producers/1
   def show
     render json: @producer
