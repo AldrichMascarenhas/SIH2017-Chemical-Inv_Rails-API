@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4b4007d5-5ef3-4c28-beea-7fbb3ba4f591" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="4b4007d5-5ef3-4c28-beea-7fbb3ba4f591" name="Default" comment="" />
     <ignored path="chemical_inv_api.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.bundle/" />
@@ -480,12 +476,12 @@
       <workItem from="1491017683047" duration="6609000" />
       <workItem from="1491032584178" duration="56000" />
       <workItem from="1491036408929" duration="774000" />
-      <workItem from="1491037246173" duration="626000" />
+      <workItem from="1491037246173" duration="685000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43373000" />
+    <option name="totallyTimeSpent" value="43432000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1303" height="780" extended-state="6" />
