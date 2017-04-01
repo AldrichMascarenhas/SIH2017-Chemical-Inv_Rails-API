@@ -31,11 +31,13 @@ class ShipmentsController < ApplicationController
   # PATCH/PUT /shipments/1
   def update
 
+    warehouse_id = params[:warehouse_id]
+
     ids = params[:package_ids].split(',')
 
     ids.each do |id|
       @package = Package.find(id.to_i)
-      @package.update_attributes(shipment_id: params[:id])
+      @package.update_attributes(shipment_id: params[:id], warehouse_id: warehouse_id)
     end
 
     @shipment = Shipment.find(params[:id])
