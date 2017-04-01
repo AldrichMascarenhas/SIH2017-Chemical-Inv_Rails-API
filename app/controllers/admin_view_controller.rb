@@ -21,11 +21,6 @@ class AdminViewController < ApplicationController
 
   end
 
-  def showalllogistics
-    @logistics = Logistic.all
-
-    render json: @logistics
-  end
 
   def showalltransports
     @transports = Transport.all
@@ -74,11 +69,6 @@ class AdminViewController < ApplicationController
 
   end
 
-  def getcountofalllogistics
-    @logistics = Logistic.count
-
-    render json: @logistics
-  end
 
   def getcountofalltransports
     @transports = Transport.count
