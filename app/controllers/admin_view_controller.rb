@@ -60,6 +60,65 @@ class AdminViewController < ApplicationController
   end
 
 
+  def getcountofallproducers
+    @producers = Producer.count
+
+    render json: @producers
+  end
+
+  def getcountofallproducttypes
+    @producttypes = ProductType.count
+
+    render json: @producttypes
+
+  end
+
+  def getcountofallproducts
+    @products = Product.count
+
+    render json: @products
+  end
+
+  def getcountofallpackages
+    @packages = Package.count
+
+    render json: @packages
+
+  end
+
+  def getcountofalllogistics
+    @logistics = Logistic.count
+
+    render json: @logistics
+  end
+
+  def getcountofalltransports
+    @transports = Transport.count
+
+    render json: @transports
+  end
+
+  def getcountofalllogisticservices
+    @logisticservices = LogisticsService.count
+
+    render json:  @logisticservices
+  end
+
+  def getcountofallwarehouses
+    @warehouses = Warehouse.count
+
+    render json: @warehouses
+  end
+
+
+  def getcountofallshipments
+    @shipments = Shipment.count
+
+    render json: @shipments
+
+  end
+
+
 
 
 
