@@ -4,4 +4,6 @@ class WarehouseSerializer < ActiveModel::Serializer
 
   has_many :packages
 
+  has_one :warehouse_location
+
 end

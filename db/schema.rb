@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170331075438) do
+ActiveRecord::Schema.define(version: 20170401085447) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "provider",               default: "email", null: false
@@ -82,6 +82,16 @@ ActiveRecord::Schema.define(version: 20170331075438) do
     t.index ["product_id"], name: "index_packages_on_product_id"
     t.index ["shipment_id"], name: "index_packages_on_shipment_id"
     t.index ["warehouse_id"], name: "index_packages_on_warehouse_id"
+  end
+
+  create_table "producer_locations", force: :cascade do |t|
+    t.integer  "producer_id"
+    t.string   "fulladdress"
+    t.string   "state"
+    t.integer  "pincode"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["producer_id"], name: "index_producer_locations_on_producer_id"
   end
 
   create_table "producers", force: :cascade do |t|
@@ -166,6 +176,16 @@ ActiveRecord::Schema.define(version: 20170331075438) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
+  end
+
+  create_table "warehouse_locations", force: :cascade do |t|
+    t.integer  "warehouse_id"
+    t.string   "fulladdress"
+    t.string   "state"
+    t.integer  "pincode"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["warehouse_id"], name: "index_warehouse_locations_on_warehouse_id"
   end
 
   create_table "warehouses", force: :cascade do |t|
