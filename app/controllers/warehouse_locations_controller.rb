@@ -17,7 +17,7 @@ class WarehouseLocationsController < ApplicationController
   def create
 
     @warehouse = Warehouse.find(params[:warehouse_id])
-    @warehouse_location = @warehouse.warehouse_location.create(warehouse_location_params)
+    @warehouse_location = @warehouse.create_warehouse_location(warehouse_location_params)
 
 
     if @warehouse_location.save

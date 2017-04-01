@@ -18,7 +18,7 @@ class ProducerLocationsController < ApplicationController
   def create
 
     @producer = Producer.find(params[:producer_id])
-    @producer_location = @producer.producer_location.create(producer_location_params)
+    @producer_location = @producer.create_producer_location(producer_location_params)
 
 
     if @producer_location.save

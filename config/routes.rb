@@ -75,7 +75,7 @@ Rails.application.routes.draw do
   get :getcountofallshipments, to: "admin_view#getcountofallshipments"
 
 
-  post :search, to: "cas_data_search#search"
+  get :search, to: "cas_data_search#search"
 
 
 
