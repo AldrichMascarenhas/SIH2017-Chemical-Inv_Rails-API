@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
    shallow do
     resources :producers do
+      resources :producer_locations
       resources :product_types do
         resources :products do
           resources :packages
@@ -17,8 +18,15 @@ Rails.application.routes.draw do
    end
 
 
+  shallow do
+    resources :warehouses do
+      resources :warehouse_locations
 
-    resources :warehouses
+    end
+
+
+
+  end
 
     shallow do
       resources :logistics do
