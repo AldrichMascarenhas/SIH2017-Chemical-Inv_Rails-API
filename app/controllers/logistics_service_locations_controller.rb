@@ -52,6 +52,6 @@ class LogisticsServiceLocationsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def logistics_service_location_params
-      params.permit(:lat, :long)
+      params.permit(:lat, :lng)
     end
 end
