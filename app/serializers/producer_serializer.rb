@@ -1,5 +1,5 @@
 class ProducerSerializer < ActiveModel::Serializer
-  attributes :id, :name, :producers_type
+  attributes :id, :name, :producers_type, :created_at
 
 
   belongs_to :user
