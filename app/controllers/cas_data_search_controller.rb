@@ -1,11 +1,11 @@
 class CasDataSearchController < ApplicationController
-
   def search
 
-    @casdatanumber = params[:casdata]
+    # @casdatanumber = params[:casdata]
 
-    render json: { cas: @casdatanumber}
-
+    require 'open-uri'
+    @doc = Nokogiri::HTML(open("http://www.chemnet.com/"))
+    render json: { data: @doc}
 
   end
 end
