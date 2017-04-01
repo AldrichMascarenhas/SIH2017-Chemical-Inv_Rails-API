@@ -53,7 +53,6 @@ Rails.application.routes.draw do
   end
 
   get :showallproducers, to: "admin_view#showallproducers"
-  get :showallproducttypes, to: "admin_view#showallproducttypes"
   get :showallproducts, to: "admin_view#showallproducts"
   get :showallpackages, to: "admin_view#showallpackages"
   get :showalllogistics, to: "admin_view#showalllogistics"
@@ -63,7 +62,6 @@ Rails.application.routes.draw do
   get :showallshipments, to: "admin_view#showallshipments"
 
   get :getcountofallproducers, to: "admin_view#getcountofallproducers"
-  get :getcountofallproducttypes, to: "admin_view#getcountofallproducttypes"
   get :getcountofallproducts, to: "admin_view#getcountofallproducts"
   get :getcountofallpackages, to: "admin_view#getcountofallpackages"
   get :getcountofalllogistics, to: "admin_view#getcountofalllogistics"

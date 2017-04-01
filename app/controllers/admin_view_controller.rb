@@ -7,12 +7,6 @@ class AdminViewController < ApplicationController
     render json: @producers
   end
 
-  def showallproducttypes
-    @producttypes = ProductType.all
-
-    render json: @producttypes
-
-  end
 
   def showallproducts
     @products = Product.all
@@ -66,12 +60,6 @@ class AdminViewController < ApplicationController
     render json: @producers
   end
 
-  def getcountofallproducttypes
-    @producttypes = ProductType.count
-
-    render json: @producttypes
-
-  end
 
   def getcountofallproducts
     @products = Product.count
