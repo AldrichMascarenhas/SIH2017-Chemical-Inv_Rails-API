@@ -75,6 +75,7 @@ Rails.application.routes.draw do
   get :producersforstate, to: "producers#producersforstate"
   get :warehousesforstate, to: "warehouses#warehousesforstate"
 
+  get :uniqueproducts, to: "admin_view#uniqueproducts"
 
 
 

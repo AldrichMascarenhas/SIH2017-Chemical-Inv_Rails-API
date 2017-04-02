@@ -98,6 +98,13 @@ class AdminViewController < ApplicationController
 
 
 
+  def uniqueproducts
+    @products =  Product.select(:name).map(&:name).uniq
+
+    render json: @products
+  end
+
+
 
 
 end
