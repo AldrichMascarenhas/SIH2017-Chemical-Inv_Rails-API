@@ -77,7 +77,7 @@ Rails.application.routes.draw do
 
   get :uniqueproducts, to: "admin_view#uniqueproducts"
 
-
+  post :producerforchem, to: "admin_view#producerforchem"
 
 
 

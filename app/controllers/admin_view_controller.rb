@@ -104,6 +104,13 @@ class AdminViewController < ApplicationController
     render json: @products
   end
 
+  def producerforchem
+    @chem_name = params[:chemical_name]
+    @producers = Producer.joins(:products).where('products.name' => @chem_name)
+    render json:  @producers
+
+  end
+
 
 
 
